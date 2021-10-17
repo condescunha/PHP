@@ -1,0 +1,23 @@
+Instalação do PHP
+
+Se você quiser saber mais detalhes sobre como o PHP surgiu e a história dessa linguagem, poderá encontrar essas informações no site oficial do PHP. Talvez isso não seja tão importante para aprendermos a utilizar a linguagem, mas certamente é um conhecimento interessante.
+
+Como citei anteriormente, o PHP é uma linguagem interpretada - ou seja, algum programa precisa ler o nosso arquivo de texto, interpretar aquelas instruções e fazer as execuções no sistema operacional, na linha de comando, no servidor web ou em outro ambiente no qual o PHP esteja rodando. O programa que lê o nosso código e realiza as ações é o interpretador do PHP, ou seja, o PHP em si, e é ele que vamos instalar.
+
+Se você estiver em uma máquina Linux ou macOS, a instalação é de certa forma simplificada: basta executar um comando. Entretanto, tanto para Linux, quanto para Mac e Windows, existe a opção de compilar o PHP - baixar o código fonte e compilá-lo somente com o que precisamos, habilitando as partes que serão utilizadas na nossa aplicação.
+
+Isso traz um controle muito mais fino dos arquivos que instalaremos na nossa máquina, o que também culmina em uma performance melhor. Como a nossa intenção, pelo menos por enquanto, é conhecer a linguagem, não entraremos nesse tipo de detalhe.
+
+Como no Windows o processo de instalação é um pouco diferente, vamos acompanhá-lo nesse vídeo. O primeiro passo será baixar o PHP em si. Nesse curso, utilizaremos a versão 7.3.4, a mais recente na data da gravação. Se no momento que você estiver assistindo ao vídeo já existir uma versão mais nova, você poderá utilizá-la sem problemas, desde que ela seja a versão 7.
+
+Seguindo os passos no site, baixaremos ZIP disponível na página, que trará diversos arquivos, dentre eles um executável do Windows (.exe). Esse é o programa que lerá o nosso código e executará as instruções. Mas como o nosso sistema vai encontrar esse arquivo? Precisamos instruir o Windows a localização desse executável, o que é feito por meio das Variáveis de Ambiente.
+
+Portanto, abriremos o menu Iniciar, pesquisaremos por "variáveis" e clicaremos em "editar as variáveis de ambiente do sistema". Na tela que será aberta, clicaremos no botão "Variáveis de Ambiente", selecionaremos "Path" e clicaremos em "Editar". Na nova janela, clicaremos em "Novo" e adicionaremos o caminho da pasta na qual os arquivos do ZIP foram extraídos.
+
+Sempre que digitamos um comando no Terminal, o Windows busca um executável nos caminhos mostrados nessa lista. Logo, no Prompt de Comando (que pode ser aberto digitando cmd no menu Iniciar), escreveremos php e pressionaremos "Enter" para que o PHP seja executado. Se executarmos php -v, seremos informados a versão do PHP que está instalada. Com isso, já temos o nosso ambiente pronto para começarmos a trabalhar.
+
+Dentre os arquivos que foram extraídos, temos o php.ini, que contém diversas configurações do PHP, como quais extensões estão habilitadas. Uma extensão do PHP é uma funcionalidade adicional, como a conexão com um banco de dados específico ou a manipulação de alguns tipos de dados - detalhes aos quais não precisamos nos atentar agora. Uma configuração um pouco mais simples encontrada nesse arquivo é, por exemplo, se o PHP deve ou não exibir os erros.
+
+O PHP nos fornece dois arquivos de exemplo: um para ser utilizado em ambiente de desenvolvimento, e outro para ser utilizado quando a nossa aplicação estiver em ambiente de produção. Obviamente, iremos editá-los de acordo com as nossas necessidades. Porém, por enquanto, o php.ini-development já serve para o nosso propósito. Portanto, vamos renomeá-lo para php.ini, tornando-o válido para ser lido.
+
+Feito isso, já temos todo o ambiente configurado para começarmos a desenvolver, e o próximo passo é escrevermos códigos que possam ser lidos pelo PHP.
