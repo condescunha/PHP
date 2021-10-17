@@ -1,0 +1,47 @@
+Apenas uma linha
+
+No último vídeo, comentamos que a nossa instrução echo "Você só tem $idade anos. Você não pode entrar." continua funcionando mesmo sem a utilização das chaves. Mas não precisávamos das chaves sempre que tivéssemos um bloco de código?
+
+Para testarmos isso, vamos adicionar mais uma linha ao nosso código, que diz "É uma pena" se o valor de $idade for menor que 16 (ou se for menor que 18 e a pessoa não estiver acompanhada), e vamos alterar o valor de $idade para 19.
+
+<?php
+
+$idade = 19;
+$numeroDePessoas = 1;
+
+echo "Você só pode entrar se tiver a partir de 18 anos ou ";
+echo "a partir de 16 anos acompanhado" . PHP_EOL;
+
+if ($idade >= 18) {
+    echo "Você tem $idade anos. Pode entrar sozinho.";
+} else if ($idade >= 16 && $numeroDePessoas > 1) {
+    echo "Você tem $idade anos e está acompanhado(a), então pode entrar.";
+} else 
+    echo "Você só tem $idade anos. Você não pode entrar";
+        echo PHP_EOL . "É uma pena";
+
+
+echo PHP_EOL;
+echo "Adeus!";
+
+Se executarmos o nosso código, teremos como retorno:
+
+Você só pode entrar se tiver a partir de 18 anos, ou a partir de 16 anos acompanhado.
+
+Você tem 19 anos. Pode entrar sozinho.
+
+É uma pena.
+
+Adeus!
+
+O trecho "É uma pena." não deveria ter sido executado, certo? Quando temos uma estrutura de decisão (if, else if e else) que delimita um bloco, e o código nesse bloco é composto de uma única linha de instrução, não precisamos utilizar as chaves. Isso porque o PHP entende que a instrução que vem logo aós a condicional (if, else if ou else) faz parte dela, e todo o resto não.
+
+Ou seja, se removermos a linha echo PHP_EOL . "É uma pena";, o código voltará a funcionar corretamente.
+
+Mesmo que as chaves sejam opcionais, eu, Vinicius, sempre opto por utilizá-las. Isso facilita no caso de precisarmos adicionar mais uma linha ao código, por exemplo, além de aumentar a legibilidade.
+
+O PHP também permite a utilização de elseif, tudo junto, chegando ao mesmo resultado. Ou seja, existem formas diferentes de escrever e ler o código, mas o PHP abstrai esses detalhes, entrega algumas facilidades e simplesmente executa as instruções que foram passadas.
+
+Com isso, já temos bastante coisa funcionando no nosso programa, conseguindo tomar decisões dentro do nosso código. Agora, fica um desafio: imagine que essa aula fosse presencial, e não online, e tivéssemos uma lista de chamadas com 15 alunos. Como conseguiríamos exibir uma lista com os números de cada um desses alunos, um embaixo do outro?
+
+A resposta vem na próxima aula.
