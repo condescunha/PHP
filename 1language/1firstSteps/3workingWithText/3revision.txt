@@ -1,0 +1,24 @@
+Revisão até aqui
+
+Nesse vídeo vamos recapitular os conteúdos que aprendemos até agora. Começamos a trabalhar escrevendo comandos diretamente no terminal do php, que foi acessado com php -a. Lá, foi possível declarar uma variável, exibir textos, entre outras funcionalidades. Nesse ponto, aprendemos que toda instrução do PHP deve terminar com ;.
+
+Depois dessa execução, passamos a escrever nossos códigos em um arquivo separado, de modo a conseguirmos executar uma sequência de comandos. Então, entendemos o que são variáveis (que sempre se iniciam com $) e como armazenar, manipular e exibir os dados. Também aprendemos a realizar operações com esses dados, como soma, subtração, multiplicação e divisão.
+
+Todos esses dados manipulados eram do tipo inteiro (integer), o que abriu uma brecha para conversarmos a respeito de outros tipos, como decimais (double/float), texto (string) e booleano (boolean). A partir disso, começamos a juntar textos diferentes e a exibir variáveis dentro de um texto.
+
+Vimos que valores entre aspas simples (') são apenas lidos como strings, enquanto valores entre aspas duplas (") podem ser interpretados. Dessa forma, podemos passar variáveis ou referências de caracteres especiais entre aspas duplas. Também aprendemos a concatenar valores próprios do PHP, como o PHP_EOL:
+
+<?php
+
+$idade = 21;
+
+echo "Olá mundo!" .PHP_EOL;
+
+echo "Eu tenho $idade anos.";
+
+Agora começaremos a trabalhar mais ativamente no código. Por exemplo, imagine a seguinte situação:
+
+echo "Você só pode entrar se tiver mais de 18 anos\n";
+echo "Você tem $idade anos. Pode entrar";
+
+Nesse caso, a segunda mensagem só fará sentido se o valor informado na variável $idade for igual ou maior a 18. Porém, se passarmos valores abaixo deste, a mensagem continuará sendo exibida. Ou seja, o nosso código não consegue tomar decisões antes de executar ações. Na próxima aula, começaremos a trabalhar com decisões, fluxos e fluxos alternativos.
