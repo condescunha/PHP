@@ -1,0 +1,38 @@
+Caracteres especiais
+
+No último vídeo, conseguimos juntar um texto com o valor de uma variável, mas não conseguimos quebrar linhas. No PHP temos as strings, sequências de caracteres que formam um texto. O echo simplesmente exibe as strings e os valores que definimos, e não faz nada além disso. Além disso, os espaços e quebras de linha entre uma instrução do PHP e outra não são interpretados. Isso é uma vantagem, afinal, do contrário, teríamos que escrever todo o nosso código em uma única linha.
+
+Se quisermos realizar uma quebra de linha, precisaremos instruir o PHP a incluir, além do texto, um caractere especial que quebra linhas. Para informarmos um caractere especial, utilizamos contra-barra (\) e o código que referencia esse caractere - nesse caso, n, de "new line".
+
+<?php
+
+$idade = 21;
+
+echo "Olá mundo!\n";
+
+echo "Eu tenho $idade anos.";
+
+Dessa vez, a nossa mensagem será exibida da forma correta:
+
+Olá mundo!
+
+Eu tenho 21 anos
+
+Devemos tomar cuidado com o uso de aspas simples ('), pois, nesses casos, o PHP entende que tudo compreendido por elas é uma string e não precisa ser interpretado. Dessa forma, o caractere especial \n não funcionará. Já com o uso de aspas duplas ("), o PHP entende que pode precisar interpretar algo, seja uma variável ou um caractere especial.
+
+E se, ao invés de uma linha vazia, quiséssemos dar um Tab para frente? Se fizermos echo " Eu tenho $idade anos.";, esse espaçamento será exibido corretamente. Mas será que é possível salvar o valor desse Tab em um caractere? Na verdade sim, por meio de \t:
+
+echo "\t Eu tenho $idade anos.";COPIAR CÓDIGO
+Existem diversos caracteres especiais, e o PHP consegue exibí-los por meio da contra-barra e da identificação desse caractere. Na página sobre strings do PHP, é possível encontrar uma lista das chamadas "sequências de escape", que são caracteres especiais.
+
+Normalmente, os arquivos do Windows trabalham com \r\n, ou seja, o caractere de retorno de carro somado ao caractere de nova linha, para identificar uma quebra de linha. Para não nos preocuparmos com esses detalhes, ou mesmo precisarmos lembrar de cada referência de caractere especial, o PHP criou uma forma um pouco mais legível de quebrar linhas. Para isso, ao invés de \n, concatenaremos a string com um valor do PHP chamado PHP_EOL ("end of line"), que tem o valor do caractere especial de quebra de linha do sistema operacional em que é executado.
+
+<?php
+
+$idade = 21;
+
+echo "Olá mundo!" .PHP_EOL;
+
+echo "Eu tenho $idade anos.";
+
+Agora que já aprendemos bastante sobre o PHP, dedicaremos o próximo vídeo para revisarmos o conteúdo abordado até aqui.
