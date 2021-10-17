@@ -1,0 +1,7 @@
+Para saber mais: Dinheiro
+
+Agora que já sabemos armazenar dados e realizar operações matemáticas com eles, você pode querer implementar programas que façam contas com valores monetários. Aplicar juros, descontos, etc.
+
+Na computação existe um problema muito famoso de precisão. Existem vários guias que explicam como contornar este problema em linguagens diferentes, e um deles é o site The Floating-Point Guide (https://floating-point-gui.de/).
+
+Logo, caso você precise realizar operações em valores monetários (com qualquer linguagem), tome bastante cuidado!
