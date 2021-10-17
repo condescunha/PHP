@@ -1,0 +1,83 @@
+Senão
+
+No momento, temos uma condicional no nosso código que exibe uma mensagem caso o valor passado em $idade seja maior ou igual a 18. Queremos, então, exibir uma mensagem diferente caso $idade seja menor do que 18. Uma solução bastante óbvia para isso seria criarmos outra condição if:
+
+<?php
+
+$idade = 16;
+
+echo "Você só pode entrar se tiver a partir de 18 anos" . PHP_EOL;
+
+if ($idade >= 18) {
+    echo "Você tem $idade anos." . PHP_EOL;
+    echo "Pode entrar";
+}
+
+if ($idade < 18) {
+    echo "Você só tem $idade anos. Você não pode entrar";
+}
+
+Dessa forma, nossa lógica funcionará como esperado. Porém, temos uma verificação que executa uma ação, e, em seguida, temos exatamente a verificação oposta. Em uma linguagem de programação que nos permite verificar algo, faz sentido existir uma forma de verificar também a não-satisfação da condição que colocamos.
+
+Ou seja, se temos um se (if), gostaríamos de ter também um senão...que, na programação, escrevemos como else:
+
+if ($idade >= 18) {
+    echo "Você tem $idade anos." . PHP_EOL;
+    echo "Pode entrar";
+} else {
+    echo "Você só tem $idade anos. Você não pode entrar";
+}
+
+Ainda podemos inserir uma mensagem de despedida depois da execução desse código, independentemente da pessoa ter conseguido entrar ou não, escrevendo-a fora de todas as verificações:
+
+<?php
+
+$idade = 16;
+
+echo "Você só pode entrar se tiver a partir de 18 anos" . PHP_EOL;
+
+if ($idade >= 18) {
+    echo "Você tem $idade anos." . PHP_EOL;
+    echo "Pode entrar";
+} else {
+    echo "Você só tem $idade anos. Você não pode entrar";
+}
+
+echo PHP_EOL;
+echo "Adeus!";
+
+Dessa forma, teremos as seguintes respostas, dependendo do valor de $idade;
+
+Você só pode entrar se tiver a partir de 18 anos
+
+Você só tem 16 anos. Você não pode entrar
+
+Adeus!
+
+Você só pode entrar se tiver a partir de 18 anos
+
+Você tem 21 anos.
+
+Pode entrar Adeus!
+
+Conseguimos construir as estruturas se e senão, mas imagine o seguinte caso:
+
+<?php
+
+$idade = 21;
+$numeroDePessoas = 1;
+
+echo "Você só pode entrar se tiver a partir de 18 anos ou ";
+echo "a partir de 16 anos acompanhado" . PHP_EOL;
+
+if ($idade >= 18) {
+    echo "Você tem $idade anos." . PHP_EOL;
+    echo "Pode entrar";
+} else {
+    echo "Você só tem $idade anos. Você não pode entrar";
+}
+
+echo PHP_EOL;
+echo "Adeus!";
+
+Nesse cenário, a pessoa só poderá entrar se tiver a partir de 18 anos, ou se tiver 16 anos e estiver com mais alguma pessoa. No próximo vídeo aprenderemos a implementar essas várias verificações.
