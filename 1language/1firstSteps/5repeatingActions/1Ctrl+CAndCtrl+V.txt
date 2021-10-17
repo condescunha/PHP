@@ -1,0 +1,85 @@
+
+Ctrl C e Ctrl V
+
+Ao longo desse curso já aprendemos bastante coisa, não é? Conseguimos executar o PHP diretamente pela linha de comando e fizemos alguns testes, como o famoso "Olá mundo", e entendemos a estrutura de um arquivo PHP, como criá-lo e, claro, como executá-lo.
+
+Depois disso, estudamos o que são variáveis, como armazenar dados nelas e quais são os possíveis tipos de dados em PHP, além de realizarmos operações com os tipos numéricos.
+
+Quando aprendemos o tipo de texto, conversamos sobre como manipular strings, juntando-as ou concatenando-as com outros tipos, variáveis e caracteres especiais.
+
+A partir daí, começamos a trabalhar com decisões, fazendo com que determinadas ações fossem executados caso alguma condição fosse satisfeita ou não. Ao final da última aula, deixei um desafio, e agora vamos conversar sobre ele.
+
+A ideia é imprimir uma folha com os números de 1 a 15, um em cada linha, para que o professor possa escrever os nomes dos alunos. Como podemos fazer isso?
+
+Para começarmos a trabalhar, criaremos um novo arquivo repeticao.php. Para imprimirmos um número, usamos o echo e o número que queremos exibir, por exemplo:
+
+echo "#1";
+
+Se quisermos exibir vários números, um embaixo do outro, podemos copiar e colar esse código repetidas vezes, adicionando um PHP_EOL para pularmos as linhas:
+
+echo "#1" . PHP_EOL;
+echo "#2" . PHP_EOL;
+echo "#3" . PHP_EOL;
+echo "#4" . PHP_EOL;
+echo "#5" . PHP_EOL;
+echo "#6" . PHP_EOL;
+echo "#7" . PHP_EOL;
+echo "#8" . PHP_EOL;
+echo "#9" . PHP_EOL;
+echo "#10" . PHP_EOL;
+echo "#11" . PHP_EOL;
+echo "#12" . PHP_EOL;
+echo "#13" . PHP_EOL;
+echo "#14" . PHP_EOL;
+echo "#15" . PHP_EOL;
+
+Se executarmos esse arquivo no terminal, teremos a impressão dos números de 1 a 15, da forma que gostaríamos. Mas será essa a melhor forma de resolvermos o desafio? Afinal, esse código não parece nada inteligente.
+
+Vamos supor que tenhamos uma variável que armazena os valores de cada linha, e, enquanto esse valor não chegar a 15, queremos exibir o número, quebrar a linha, adicionar mais 1 ao número e repetir essa operação.
+
+Transferindo essa lógica para o nosso código, teríamos uma variável $contador que, inicialmente, recebe o valor 1. Enquanto ela não chega a 15, exibiríamos $contador na tela com echo e pularíamos uma linha, fazendo com que essa variável recebesse seu próprio valor com a adição de 1, ou seja, $contador + 1.
+
+$contador = 1;
+
+enquanto nao chegar a 15
+        echo $contador . PHP_EOL;
+        $contador = $contador + 1;
+        
+Na aula sobre decisões, aprendemos que um bloco de código que será executado dependendo de uma condição deve estar delimitado entre chaves. Mas como escreveremos esse "enquanto nao chegar a 15"?
+
+Sabemos que "enquanto" em inglês é while, e que as condições no PHP são colocadas entre parênteses. Queremos, então, que nosso código seja executado enquanto $contador for menor o igual a 15. Assim, teremos:
+
+$contador = 1;
+
+while ($contador < 15) {
+        echo "#$contador" . PHP_EOL;
+        $contador = $contador + 1;
+}
+
+Adicionamos # antes da variável para que os números sejam exibidos como #1, #2 e assim por diante. Se executarmos no terminal com php repeticao.php, os números serão impressos com sucesso!
+
+Porém, o valor #15 não será mostrado, afinal, segundo a nossa própria lógica, 15 não é menor do que 15. Corrigiremos isso com <=:
+
+$contador = 1;
+
+while ($contador <= 15) {
+        echo "#$contador" . PHP_EOL;
+        $contador = $contador + 1;
+}
+
+Dessa forma, conseguimos resolver o nosso desafio sem copiar e colar código! Aliás, fica o aviso para quem está iniciando em programação: se você está copiando e colando código, alguma coisa deve estar errada.
+
+No nosso código, estamos executando todo o trecho entre chaves enquanto a condição $contador <= 15 é verdadeira. Mas o que acontece se comentarmos a linha $contador = $contador + 1`?
+
+$contador = 1;
+
+while ($contador <= 15) {
+        echo "#$contador" . PHP_EOL;
+        // $contador = $contador + 1;
+}
+
+Nesse caso, a variável $contador tem o valor 1. Como 1 é menor que 15, o programa exibirá esse valor na tela e quebrará a linha. Como o valor continua sendo 1, que continua sendo menor que15, o programa continuará repetindo o processo, entrando em um loop infinito. Se executarmos esse código no terminal, ele continuará sendo executado até que cancelemos com "Ctrl + C".
+
+Quando adicionamos a linha $contador = $contador + 1, estamos garantindo que em algum momento a condição será falsa, encerrando o loop. Simples, não?
+
+Existem ainda outras formas de criarmos repetições e loops em PHP. Conversaremos sobre uma delas no próximo vídeo.
