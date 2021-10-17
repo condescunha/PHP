@@ -1,0 +1,13 @@
+Para saber mais: Booleanos
+
+Entendemos como escrever condições e testá-las, tomando decisões em nosso código.
+
+Mas uma coisa que talvez não tenha ficado clara é: A estrutura de decisão if apenas testa valores booleanos. Aqueles que conversamos no segundo capítulo que apenas armazenam valores true (verdadeiro) ou false (falso).
+
+Ou seja, todas as expressões que forem escritas e avaliadas pelo if devem poder ser representadas como um valor booleano.
+
+Caso você utilize algum outro valor (string, inteiro, float, etc), o próprio PHP realizará a conversão destes valores para booleano seguindo as regras explicadas na documentação (https://www.php.net/manual/pt_BR/language.types.boolean.php).
+
+No primeiro comentário dessa página temos uma opinião bem interessante sobre a forma do PHP lidar com estes valores e um exemplo bem claro do porquê os operadores && e || são mais comumente usados do que seus “equivalentes” and e or.
+
+Apenas lembrando: Alguns detalhes da documentação e principalmente os comentários costumam partir do princípio que você já tem algum conhecimento prévio. Caso algo neste link não tenha ficado claro, não se preocupe. Termine os treinamentos iniciantes da Alura, e caso a dúvida permaneça, não hesite em abrir uma dúvida no nosso fórum.
