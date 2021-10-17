@@ -1,0 +1,15 @@
+O que é PHP
+
+Vamos conversar um pouco sobre o que é o PHP. Analisando o site oficial do PHP (https://www.php.net/), encontramos uma descrição genérica dizendo que o PHP é uma linguagem de programação com diversos propósitos, especialmente desenvolvida para a Web. Pensando de forma mais simples e menos genérica, o que é o PHP, para que ele serve e quando ele deve ser utilizado?
+
+O PHP já foi muito chamado de linguagem de script, mas é uma linguagem de programação interpretada. Isso significa que, quando alteramos o nosso código, não precisamos compilá-lo novamente para que ele seja legível por algum programa ou pela própria máquina, o que traz algumas vantagens e desvantagens, e, como vantagem temos principalmente, produtividade.
+
+Muitos consideram o PHP uma linguagem para a Web, mas não é exatamente assim. O PHP funciona em outros ambientes, como IOT (Internet of Things, ou "Internet das Coisas"), funciona na linha de comando, pode criar aplicativos desktop, entre outras possibilidades. Apesar disso, o ambiente mais comum, e onde ele se comporta melhor, realmente é na Web - instalado em servidores Web e servindo páginas com conteúdo dinâmico.
+
+Como qualquer linguagem que aprendemos na faculdade ou nos livros, nós começamos a estudar o PHP executando comandos no terminal - ou seja, na linha de comando. Inclusive é possível criar scripts muito poderosos na linha de comando.
+
+Vamos conhecer um pouco melhor como o PHP funciona por baixo dos panos. Antes de entrarmos em conceitos de Web, como requisição, resposta e protocolo HTTP, focaremos nos detalhes da linguagem. Justamente por isso, executaremos todos os exemplos desse treinamento em um terminal.
+
+Talvez ainda não tenha ficado muito claro o que é o PHP e quais são as vantagens dele, mas esses tópicos continuarão sendo abordados no decorrer desse curso e dos próximos. O ponto principal é: o PHP é uma linguagem de programação muito poderosa que se comporta bem em vários ambientes, mas que foi feita pensando na Web. Portanto, normalmente as soluções que você desenvolverá vão rodar na Web, mas isso não limita a linguagem a esse ambiente.
+
+Após essa conversa, o primeiro passo para começarmos a programar com PHP é instalá-lo.
