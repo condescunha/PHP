@@ -1,0 +1,57 @@
+Tipos de dados
+
+Nós já entendemos por alto como o PHP funciona, o que são variáveis, como atribuí-las e como fazer operações com essas variáveis. Porém, até o momento, só conseguimos manipular números inteiros. Para essa etapa do curso, criaremos um novo arquivo chamado tipos.php. Conversaremos, então, sobre tipos de dados em PHP.
+
+Sabemos que a variável $idade é um número inteiro, afinal, é assim que representamos idades no mundo real. Mas e valores em dinheiro? Além de R$1000,00 ou R$1001,00, um salário também pode ser R$1000,50, certo? Antes de nos aprofundarmos mais nisso, vamos voltar aos números inteiros.
+
+Como podemos confirmar que o PHP entende 21 como um número inteiro? O PHP nos fornece uma funcionalidade para descobrir o tipo de uma variável. Por enquanto, não se atenha à sintaxe, pois ainda conversaremos sobre. Executaremos então echo gettype($idade). Esse método exibirá o tipo da variável que passamos por parâmetro.
+
+$idade = 21;
+
+echo gettype($idade);
+
+Agora, se executarmos php tipos.php no terminal, teremos como retorno "integer" - ou seja, "inteiro". Criaremos, então, uma variável $salario recebendo 1000. Se exibirmos essa variável, também receberemos um "integer". Mas o que acontece se passarmos um número com casas decimais? E como devemos representar esse número?
+
+Os números quebrados, na programação, são chamados de "números de ponto flutuante". Na prática, isso significa que são números decimais representados com pontos, ao invés de vírgulas como estamos acostumados no Brasil.
+
+$salario = 1000.30;
+echo gettype($salario);
+
+Dessa vez, se executarmos php tipos.php, receberemos "double" como resposta. "Double" não significa que existem dois números após a vírgula, mas é como o PHP chama um número decimal. Outro nome a esse tipo de número, no PHP, é "float". No momento, trataremos esses nomes como sinônimos.
+
+Em alguns casos, quando estivermos estudando mais a fundo, "double" significa algo como um número decimal com precisão dupla.
+
+Já sabemos representar um número inteiro e um número decimal. Agora, tentaremos pegar o tipo do resultado de uma operação matemática:
+
+$divisao = 10/3;
+echo gettype($divisao);
+
+Executando no terminal, o PHP retornará novamente um "double". Inclusive, se exibirmos somente o resultado dessa divisão (echo $divisao), teremos o valor dessa divisão, que é 3.333333 - que é uma dízima periódica. Portanto, o PHP consegue entender qual tipo de dados ele irá utilizar dependendo do seu valor, e não precisaremos declarar o tipo das variáveis da seguinte forma:
+
+int $idade = 21;
+float $salario = 1000.3;
+float $divisao = 10 / 3;
+
+Justamente por isso, o PHP é o que chamamos de uma linguagem dinamicamente tipada. Inclusive, uma variável $divisao do tipo double que mais tarde recebe um valor inteiro, por exemplo 3, passará a ser tratada como do tipo inteiro.
+
+Além de números, temos outro tipo de dado, que é o texto - por exemplo, o nosso "Olá mundo!". Se executarmos a função gettype() para uma variável do tipo texto, teremos como retorno "string".
+
+$texto = "Olá mundo!";
+
+echo gettype($texto);
+
+Em PHP, e em qualquer outra linguagem de programação, uma string é um conjunto de caracteres (formando uma palavra, uma frase, um texto, etc.). Imagine agora que queremos executar alguma ação dependendo de uma condição ser verdadeira ou falsa. Em programação, temos exatamente um tipo de dado que é $verdadeiro (representado pela palavra true) ou $falso (representado por false).
+
+$verdadeiro = true;
+$falso = false;
+
+echo gettype($verdadeiro);
+echo gettype($falso);
+
+O PHP chama esse tipo de variável de "boolean" (ou booleana). Os únicos valores possíveis para uma variável booleana são verdadeiro ou falso. Com esse tipo de variável, conseguiremos tomar decisões nos nossos programas.
+
+Até o momento vimos os tipos inteiro (integer), decimal (float/double), texto (string) e booleano (boolean), que são conhecidos como "tipos primitivos". Ainda existem outros tipos, chamados de "tipos complexos", que podem ser criados a partir deles.
+
+Já entendemos bastante coisa sobre PHP, manipulação de variáveis e tipagem. Nesse processo, aprendemos o tipo string, de texto. Mas o que mais podemos fazer com esse tipo? E se quiséssemos exibir a minha idade junto ao texto Olá Mundo!, por exemplo?
+
+Conversaremos melhor sobre isso na próxima aula.
