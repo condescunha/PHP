@@ -1,0 +1,190 @@
+Caminhos diferentes
+
+Na aula anterior, criamos uma situação na qual temos uma mensagem que só deveria ser exibida caso uma condição fosse cumprida: o valor da variável $idade deve ser maior que 18.
+
+echo "Você só pode entrar se tiver mais de 18 anos\n";
+
+echo "Você tem $idade anos. Pode entrar";COPIAR CÓDIGO
+Porém, nosso programa ainda não é capaz de tomar decisões, e as duas mensagem são exibidas na tela quando executamos esse arquivo. Para trabalharmos nesse assunto, criaremos um novo arquivo decisoes.php. Nesse novo arquivo, faremos uma construção semelhante à anterior:
+
+<?php
+
+$idade = 21;
+
+echo "Você só pode entrar se tiver mais do que 18 anos" . PHP_EOL;
+
+echo "Você tem $idade anos. Pode entrar";
+
+Agora queremos fazer uma verificação: se $idade for maior do que 18, a primeira mensagem poderá ser executada. Como as linguagens de programação utilizam palavras em inglês, usaremos a condicional if:
+
+<?php
+
+$idade = 21;
+
+echo "Você só pode entrar se tiver mais do que 18 anos" . PHP_EOL;
+
+if $idade for maior 18
+echo "Você tem $idade anos. Pode entrar";
+
+Note que o seu editor de código reconhece as palavras if e for, ainda que essa última não seja exatamente o que estamos precisando. Na matemática, utilizamos o símbolo > para indicar que um número é maior que outro, e é exatamente ele que utilizaremos no nosso código:
+
+if $idade > 18
+echo "Você tem $idade anos. Pode entrar";
+
+O editor nos avisará que existe um erro no código. Ignorando esse aviso, se executarmos php decisoes.php no terminal, receberemos um erro semelhante a esse:
+
+PHP Parse error: syntax error, unexpected '$idade' (T_VARIABLE), expecting '(' in C:\Users\rodrigo\PhpstormProjects\php-primeiros-passos\decisoes.php on line 7
+
+Parse error: syntax error, unexpected '$idade' (T_VARIABLE), expecting '(' in C:\Users\rodrigo\PhpstormProjects\php-primeiros-passos\decisoes.php on line 7
+
+O erro indica que o programa incorreu em um erro de sintaxe ao parsear o nosso código PHP, pois, na linha 7, ao invés de uma variável $idade, ele esperava um parênteses (. Vamos corrigir esse erro:
+
+if ($idade > 18
+echo "Você tem $idade anos. Pode entrar";
+
+Se executarmos novamente o programa, teremos outro erro:
+
+PHP Parse error: syntax error, unexpected 'echo' (T_ECHO) in C:\Users\rodrigo\PhpstormProjects\php-primeiros-passos\decisoes.php on line 8
+
+Parse error: syntax error, unexpected 'echo' (T_ECHO) in C:\Users\rodrigo\PhpstormProjects\php-primeiros-passos\decisoes.php on line 9
+
+Dessa vez, apesar de indicar que não esperava um echo na oitava linha, o PHP não nos informa o que era esperado. Porém, podemos supor o que está faltando: se abrimos um parênteses no início da nossa condição, faz sentido fecharmos ao fim dela.
+
+if ($idade > 18)
+echo "Você tem $idade anos. Pode entrar";COPIAR CÓDIGO
+Dessa forma, tudo que estiver depois da linha if ($idade > 18) só será executado se cumprir a condição que foi estabelecida. Ainda podemos delimitar melhor o bloco a ser executado com chaves ({}) no início e no fim do código a ser executado:
+
+if ($idade > 18) {
+    echo "Você tem $idade anos. Pode entrar";
+}
+
+O PhpStorm automaticamente adiciona 4 espaços (ou um Tab) antes do bloco que foi envolto por chaves. O código funcionará corretamente mesmo sem esses espaços, porém, só de olhar essa sintaxe, conseguimos entender que a linha echo "Você tem $idade anos. Pode entrar" está dentro do bloco que a envolve. Chamamos esse recuo de "identação".
+
+Só como exercício, vamos quebrar essa exibição em duas linhas:
+
+if ($idade > 18) {
+    echo "Você tem $idade anos." . PHP_EOL;
+    echo "Pode entrar";
+}
+
+Repare que, visualmente, nós conseguimos enxergar sem dificuldades que os dois echo estão dentro do bloco, mesmo que a identação não influencie no funcionamento do código. Sempre que estamos programando, devemos pensar não somente na máquina, mas também em outras pessoas que lerão esse código durante o desenvolvimento, e a identação ajuda bastante nessa leitura.
+
+Nosso código ficou assim:
+
+<?php
+
+$idade = 21;
+
+echo "Você só pode entrar se tiver mais do que 18 anos." . PHP_EOL;
+
+if ($idade > 18) {
+    echo "Você tem $idade anos." . PHP_EOL;
+    echo "Pode entrar";
+}
+
+Executando dessa forma, receberemos as seguintes mensagens:
+
+Você só pode entrar se tiver mais do que 18 anos.
+
+Você tem 21 anos.
+
+Pode entrar
+
+Se mudarmos o valor de $idade para 16, teremos somente:
+
+Você só pode entrar se tiver mais do que 18 anos
+
+Porém, note que estamos pensando em um cenário onde pessoas maiores de 18 anos podem entrar, mas se utilizarmos o valor 18 em $idade, a mensagem "Pode entrar" continuará não sendo exibida. Isso porque 18 não é maior que 18, mas sim igual. Entretanto, o símbolo = é utilizado para atribuir valores a variáveis. Já se quisermos fazer uma comparação, utilizamos dois símbolos de igual, assim:
+
+if ($idade == 18) {
+    echo "Você tem $idade anos." . PHP_EOL;
+    echo "Pode entrar";
+}
+
+Assim, estamos comparando se a variável $idade tem o mesmo valor que 18. Inclusive, vamos mudar a mensagem para refletir melhor a lógica do nosso código:
+
+<?php
+
+$idade = 18;
+
+echo "Você só pode entrar se tiver a partir de 18 anos" . PHP_EOL;
+
+if ($idade == 18) {
+    echo "Você tem $idade anos." . PHP_EOL;
+    echo "Pode entrar";
+}
+
+Mas o que acontece se mudarmos o valor da variável $idade para 19? A mensagem "Pode entrar" continuará sendo bloqueada, afinal 19 não é igual a 18. Queremos, na verdade, realizar duas verificações. Para incluirmos um "ou" na nossa condição, utilizamos dois pipes (||):
+
+<?php
+
+$idade = 19;
+
+echo "Você só pode entrar se tiver a partir de 18 anos" . PHP_EOL;
+
+if ($idade == 18 || $idade > 18) {
+    echo "Você tem $idade anos." . PHP_EOL;
+    echo "Pode entrar";
+}
+
+Assim, o PHP verificará se $idade é igual a 18, ou se $idade é maior que 18. Assim, a mensagem "Pode entrar" será exibida se informarmos um valor igual ou superior a 18, mas não se esse valor for menor que 18.
+
+Os dois pipes (||) são a forma mais comum de escrever "ou", tanto em PHP quanto em outras linguagens de programação. Porém, no PHP, também podemos utilizar a palavra or, que é justamente "ou" em inglês.
+
+if ($idade == 18 || $idade > 18) {
+    echo "Você tem $idade anos." . PHP_EOL;
+    echo "Pode entrar";
+}
+
+Voltando à matemática, além dos sinais de maior (>) e menor (<), temos também os sinais de maior-igual ou menor-igual. No PHP, também é possível verificar se $idade é maior ou igual a 18, sem a necessidade de criarmos duas condições:
+
+if ($idade >= 18) {
+    echo "Você tem $idade anos." . PHP_EOL;
+    echo "Pode entrar";
+}COPIAR CÓDIGO
+E se quisermos verificar se $idade é maior ou igual a 18 e se a variável $nome é igual a Vinicius?
+
+$idade = 19;
+$nome = 'Vinicius';COPIAR CÓDIGO
+Para essa verificação, podemos usar a palavra and, que significa "e" em inglês:
+
+if ($idade >= 18 and $nome == 'Vinicius') {
+    echo "Você tem $idade anos." . PHP_EOL;
+    echo "Pode entrar";
+}
+
+Dessa forma, a mensagem que criamos só será exibida se essas duas condições forem satisfeitas. Da mesma forma que os dois pipes, também existe uma forma mais comum de estabelecer a relação "e", que é com dois sinais de e comercial (&&):
+
+if ($idade >= 18 && $nome == 'Vinicius') {
+    echo "Você tem $idade anos." . PHP_EOL;
+    echo "Pode entrar";
+}
+
+Nosso código continuará funcionando como esperado. A partir desse ponto, vamos remover a verificação de $nome, pois não precisaremos mais dela.
+
+<?php
+
+$idade = 19;
+
+echo "Você só pode entrar se tiver a partir de 18 anos" . PHP_EOL;
+
+if ($idade >= 18) {
+    echo "Você tem $idade anos." . PHP_EOL;
+    echo "Pode entrar";
+}
+
+Agora, se o valor passado em $idade for menor que 18, queremos exibir uma mensagem Você só tem $idade anos. Você não pode entrar.
+
+<?php
+
+$idade = 17;
+
+echo "Você só pode entrar se tiver a partir de 18 anos" . PHP_EOL;
+
+if ($idade >= 18) {
+    echo "Você tem $idade anos." . PHP_EOL;
+    echo "Pode entrar";
+}
+echo "Você só tem $idade anos. Você não pode entrar";
+
+Dessa forma, se o valor passado for menor que 18, a mensagem será exibida corretamente. Entretanto, se o valor passado for 18 ou mais...ela também será exibida! Queremos executar uma ação diferente caso a condição if não seja satisfeita. Conversaremos sobre isso no próximo vídeo.
