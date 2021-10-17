@@ -1,0 +1,68 @@
+Tipo string
+
+Nessa aula vamos trabalhar um pouco mais com a manipulação de textos no PHP. No nosso projeto, criaremos um arquivo chamado strings.php. Começaremos exibindo, como já fizemos antes, um Olá mundo.
+
+<?php
+
+echo 'Olá mundo';
+
+No terminal, executaremos php strings.php e a mensagem "Olá mundo" será exibida. Porém, repare que no arquivo ola-mundo.php, utilizamos aspas duplas (") em volta da mensagem:
+
+<?php
+
+echo "Olá mundo";
+
+Dessa vez, entretanto, utilizamos apóstrofes, também chamadas de aspas simples. Mas qual a diferença? Vamos supor que temos uma variável $idade recebendo o valor 21. Agora, queremos colocar esse valor na nossa mensagem:
+
+<?php
+
+$idade = 21;
+
+echo 'Olá mundo! Minha idade é $idade';
+
+Porém, se executarmos esse código, teremos como retorno "Olá mundo! Minha idade é $idade". Não é isso que queremos, certo? Para concatenarmos (ou seja, juntarmos) o valor de uma string com uma variável, precisaremos de outra construção. Fecharemos as aspas simples ao final do nosso texto, indicando que a string terminou, e usaremos o . para essa concatenação:
+
+<?php
+
+$idade = 21;
+
+echo 'Olá mundo! Minha idade é ' . $idade;
+
+Dessa forma, a mensagem exibida será "Olá mundo! Minha idade é 21". E se quisermos adicionar o texto "anos." ao final? Basta concatenarmos mais uma string:
+
+<?php
+
+$idade = 21;
+
+echo 'Olá mundo! Minha idade é ' . $idade . ' anos.';
+
+Quando temos somente uma variável, essa construção é bastante funcional. Porém, imagine o seguinte caso:
+
+echo 'Olá! Meu nome é ' . $nome . '. Meu e-mail é ' . $email . '. Tenho ' . $idade . ' anos ';
+
+Mesmo em uma frase tão pequena, não parece interessante concatenar as variáveis dessa forma. Seria ideal se tivéssemos uma forma de passá-las diretamente no texto...e isso é possível justamente com as aspas duplas:
+
+<?php
+
+$idade = 21;
+
+echo "Olá mundo! Minha idade é $idade anos.";
+
+Dessa forma, o PHP irá reconhecer a variável iniciada pelo $ e, após a leitura dela, continuará interpretando o texto normalmente. Se modificarmos o valor da variável, o PHP também conseguirá lê-la com sucesso. Com isso, é possível formar textos contendo valor de outros textos e variáveis, incluindo resultados de operações, e por aí vai.
+
+No nosso próximo exemplo, queremos pular uma linha:
+
+<?php
+
+$idade = 21;
+
+echo "Olá mundo!";
+
+echo "Eu tenho $idade anos.";
+
+Executando esse código, o texto será exibido todo junto:
+
+"Olá mundo!Eu tenho 21 anos"
+
+Ou seja, o PHP não tem quebra de linhas. Conversaremos mais sobre esse problema no próximo vídeo.
+
