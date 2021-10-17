@@ -1,0 +1,19 @@
+PHP na CLI
+
+Sempre que estamos aprendendo uma nova linguagem de programação, existe um exemplo clássico que é utilizado para verificarmos se o interpretador está instalado e funcionando corretamente: escrever "Olá mundo" na tela. É exatamente isso que vamos fazer.
+
+Primeiramente, independentemente do sistema operacional que você esteja usando, você muito provavelmente tem acesso ao comando echo, que exibe algo na tela. Se executarmos echo "Olá mundo" no terminal do Windows - adicionando aspas à mensagem que estamos digitando - o terminal simplesmente exibirá "Olá mundo".
+
+Ao invés de só digitarmos esse comando no terminal, queremos rodá-lo com o PHP. Para executarmos comandos no PHP dentro da linha de comando, podemos executar php -a. Isso abrirá o terminal interativo (ou "interactive shell"), o que significa que conseguiremos interagir com o PHP e executar um código linha a linha diretamente no terminal, sem a necessidade de ferramentas externas, como arquivos ou editores de texto.
+
+Por padrão, todos os sistemas operacionais têm o comando echo. O PHP, para exibir algo na tela, faz uso desse mesmo padrão. Portanto, para exibirmos uma mensagem na tela para o usuário, podemos chamar a estrutura de linguagem echo. Da mesma forma que fizemos no terminal, tal mensagem deverá vir entre aspas:
+
+echo "Olá mundo"
+
+Porém, se executarmos esse código, nada acontecerá. Isso porque faltou um detalhe: ao final de cada instrução do PHP, precisamos adicionar um ;.
+
+echo "Olá mundo";
+
+Dessa vez, o PHP entenderá que a instrução acaba naquele ponto e irá executá-la, exibindo a mensagem. Portanto, ao final de cada linha que tem uma instrução, devemos adicionar um ;. Imagine agora um programa de verdade, que tem várias instruções. Não iremos executar apenas uma instrução e encerrar o programa, mas sim várias instruções seguidas. Não parece produtivo escrevermos cada linha de comando no terminal, além de não termos a possibilidade de enviar para alguém testar ou colocar nossa aplicação em um servidor Web.
+
+Queremos, então, escrever os nossos códigos em um arquivo contendo todas as instruções a serem executadas, para depois instruirmos o PHP a executar esse arquivo.
