@@ -1,8 +1,12 @@
 <?php
 
-$idade = 21;
-$idadeDaqui10Anos = $idade + 10;
-$idadeAoCubo = $idade ** 3;
+$soma = 2 + 2;
+$subtracao = 2 - 2;
+$multiplicacao = 2 * 2;
+$divisao = 2 / 2;
 
-echo $idadeDaqui10Anos;
-echo $idadeAoCubo;
+$doisAoCubo = 2 ** 3;
+
+$restoDaDivisao = 10 % 3;
+
+echo $restoDaDivisao;
