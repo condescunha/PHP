@@ -1,0 +1,71 @@
+Já sei o limite
+
+No último vídeo, conversamos um pouco sobre loops/repetições. Antes de continuarmos, vamos revisar o que fizemos.
+
+O primeiro passo do loop foi inicializar uma variável $contador que seria utilizada nele. Em seguida, verificamos uma condição e, sendo ela verdadeira, executamos um código. Depois dessa execução, incrementamos o nosso contador. Esses são os passos para a realização de um loop simples em uma variável que é incrementada, chamada de contador.
+
+Existe uma outra sintaxe que já leva em consideração toda essa lógica, que funciona da seguinte maneira:
+
+para (essas instruções) {executa esse bloco}
+
+Vamos implementar essa sintaxe em um novo arquivo, que chamaremos de repeticao2.hp. No caso, queremos executar o contador e quebrar uma linha:
+
+para (essas instruções) {
+    echo "#$contador" . PHP_EOL;
+}
+
+Esse para () precisa que informemos a inicialização do contador ($contador = 1). Até o momento, utilizamos o ; ao final das linhas para indicarmos o encerramento de uma instrução. Nesse caso, entretanto, queremos colocar mais informações na mesma linha: a condição para continuarmos no loop.
+
+para ($contador = 1; $contador <= 15) {
+    echo "#$contador" . PHP_EOL;
+}
+
+Ao final da execução desse código, queremos incrementar o nosso contador:
+
+para ($contador = 1; $contador <= 15; $contador = $contador + 1) {
+    echo "#$contador" . PHP_EOL;
+}
+
+Para finalizarmos essa sintaxe, basta substituirmos o nosso para pelo seu respectivo em inglês: for.
+
+for ($contador = 1; $contador <= 15; $contador = $contador + 1) {
+    echo "#$contador" . PHP_EOL;
+}
+
+Esse código está inicializando a variável $contador com o valor 1, verificando se esse valor é menor ou igual a 15 e entrando no loop que exibe a variável na tela. Após a execução, ele passa para a instrução seguinte, fazendo com que $contador receba o seu valor mais 1. Em seguida, entra novamente na verificação, repetindo os passos anteriores até que o valor de $contador seja maior que 15.
+
+Se executarmos nosso programa, teremos exatamente a mesma saída que conseguimos no vídeo anterior, mas com algumas linhas de código a menos. Essa sintaxe pode parecer estranha no início, mas acaba fazendo mais sentido com o tempo. O segredo para entendê-la é, basicamente, a prática.
+
+Uma dica que tornará esse código ainda mais sucinto: toda vez que queremos adicionar um valor a uma variável, podemos expressar essa lógica com +=.
+
+Dessa forma, a nossa linha...
+
+$contador = $contador +1COPIAR CÓDIGO
+...poderia ser expressa como:
+
+$contador += 1
+
+Assim, nosso código ficará da seguinte forma:
+
+for ($contador = 1; $contador <= 15; $contador += 1) {
+    echo "#$contador" . PHP_EOL;
+}
+
+No nosso caso, só queremos incrementar essa variável - ou seja, adicionar 1. Como essa é uma lógica bastante rotineira, o PHP nos fornece uma instrução ainda mais sintética: $contador ++.
+
+for ($contador = 1; $contador <= 15; $contador ++) {
+    echo "#$contador" . PHP_EOL;
+}
+
+Nosso código continuará funcionando corretamente, mas de forma um pouco mais sucinta. Em casos como esse, é mais comum utilizarmos o for, mas nem sempre ele é a forma mais recomendada.
+
+Quando já sabemos o limite do nosso loop (aqui, $contador = 15), executamos o for. Em condições um pouco mais dinâmicas - por exemplo, "executar até o usuário encerrar" ou "executar até dar erro" - usamos o while.
+
+Ainda sim, aquilo que pode ser escrito com while também pode ser escrito com for, e vice-versa. São duas formas diferentes de executar a mesma coisa.
+
+Dica: como só temos uma instrução nesse bloco, podemos omitir as chaves e o código continuará funcionando:
+
+for ($contador = 1; $contador <= 15; $contador ++) 
+    echo "#$contador" . PHP_EOL;
+    
+Imaginemos agora que o aluno #13 não faz mais parte da turma. Portanto, queremos executar nosso loop, mas pulando esse valor. No próximo vídeo conversaremos mais sobre isso.
