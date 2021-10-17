@@ -1,0 +1,26 @@
+O que são variáveis?
+
+Na última aula nós conversamos bastante sobre o que é o PHP e como executar um código PHP, e acabamos exibindo uma mensagem para o usuário. Essa mensagem é um dado fixo, e não conseguimos, depois de exibi-la, manipulá-la de alguma forma. Então, como é que conseguimos lidar com dados que mudam...ou seja, dados variáveis?
+
+Uma variável, em uma linguagem de programação, é um espaço no programa que fica salvo na memória RAM, espaço esse a qual podemos adicionar alguma informação. A partir do momento em que a informação é guardada, podemos realizar algumas operações, modificar o valor dessa variável e utilizá-la de outras formas posteriormente - por exemplo, exibindo-a para o usuário.
+
+Esse conceito de variável é utilizado em qualquer linguagem de programação, e até mesmo na matemática (quando estudamos o conceito de funções e equações). Quando precisamos de um dado que não seja fixo e inalterável, utilizamos as variáveis. Mas como criamos variáveis no PHP?
+
+No nosso projeto, criaremos um novo arquivo chamado variavel.php. Queremos armazenar a minha idade para realizarmos algumas operações com ela. Sabemos que o nome desse dado é idade, e que a minha idade (no caso eu, Vinicius) é 21 anos. Queremos informar ao PHP que ele deve armazenar na memória, em um espaço chamado idade, o valor 21.
+
+No PHP, não precisamos informar que uma variável existe antes de utilizá-la. Ao invés disso, no momento da utilização, podemos informar que queremos que a variável idade tenha o valor 21. Para informarmos que determinado nome é uma variável, precisamos adicionar um símbolo de cifrão $ ao início dele. Para que a variável receba um valor, usamos o sinal de igual =.
+
+$idade = 21;
+
+Dessa forma, o valor 21 será atribuído à variável $idade. A partir de agora, em qualquer lugar que quisermos utilizar esse valor, poderemos chamar a variável $idade. Por exemplo, podemos exibi-la na tela chamando echo $idade, o que nos retornará...21! Se mudarmos o valor para 22 e executarmos novamente, esse será o valor exibido na tela.
+
+Nós ainda podemos, inclusive, alterar esse valor depois que ele é definido. Por exemplo:
+
+$idade = 22;
+$idade = 21;
+
+echo $idade;
+
+Dessa forma, o valor exibido na tela será 21. Com isso, aprendemos o conceito de variáveis: um valor que, mesmo depois de definido, pode ser modificado. Atualmente temos uma variável cujo valor é um número, e podemos fazer operações com números - por exemplo, descobrir quantos anos terei daqui a 10 anos. Como fazemos esse tipo de operação matemática com o PHP?
+
+Entenderemos mais sobre isso na próxima aula.
