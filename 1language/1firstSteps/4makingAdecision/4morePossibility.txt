@@ -1,0 +1,82 @@
+Queremos agora mudar a nossa regra de negócios, permitindo que a pessoa entre se sua $idade for maior ou igual a 18 ou se sua $idade for igual ou maior que 16 e o $numeroDePessoas for maior do que 1.
+
+Começaremos nosso trabalho alterando a mensagem que é exibida pelo nosso código.
+
+<?php
+
+$idade = 21;
+$numeroDePessoas = 1;
+
+echo "Você só pode entrar se tiver a partir de 18 anos ou ";
+echo "a partir de 16 anos acompanhado" . PHP_EOL;
+
+if ($idade >= 18) {
+    echo "Você tem $idade anos. Pode entrar sozinho.";
+} else {
+    echo "Você só tem $idade anos. Você não pode entrar";
+}
+
+echo PHP_EOL;
+echo "Adeus!";
+
+Agora precisamos criar o caso em que a pessoa tem 17 anos, por exemplo, e está acompanhada.
+
+$idade = 17;
+$numeroDePessoas = 2;COPIAR CÓDIGO
+Como $idade é menor que 18, cairemos no else. Portanto, podemos realizar outra verificação dentro dele:
+
+if ($idade >= 18) {
+    echo "Você tem $idade anos. Pode entrar sozinho.";
+} else {
+    if ($idade >= 16 && $numeroDePessoas > 2) {
+        echo "Você tem $idade anos e está acompanhado(a), então pode entrar.";
+    }
+    echo "Você só tem $idade anos. Você não pode entrar";
+}
+
+echo PHP_EOL;
+echo "Adeus!";
+
+Com $idade = 17 e $numeroDePessoas = 2, a mensagem exibida deveria ser "Você tem 17 anos e está acompanhado(a), então pode entrar", certo? Porém, ao executarmos o código no terminal, não só receberemos essa mensagem, como também "Você só tem 17 anos. Você não pode entrar".
+
+Isso acontece porque o programa caiu no else, executou o if e então continuou executando o restante do código. A solução para isso é adicionarmos outro else nessa lógica:
+
+if ($idade >= 18) {
+    echo "Você tem $idade anos. Pode entrar sozinho.";
+} else {
+    if ($idade >= 16 && $numeroDePessoas > 1) {
+        echo "Você tem $idade anos e está acompanhado(a), então pode entrar.";
+    } else {
+        echo "Você só tem $idade anos. Você não pode entrar";
+    }
+}
+
+echo PHP_EOL;
+echo "Adeus!";
+
+Perceba que, ao adicionarmos o novo else, a identação de echo "Você só tem $idade anos. Você não pode entrar", deixando ainda mais claro que esse trecho de código pertence a aquele bloco e só erá executado se a condição anterior não for satisfeita. A cada bloco que precisamos delimitar, aumentamos os níveis de identação.
+
+Agora, se executarmos o código, receberemos a mensagem correta:
+
+Você tem $idade anos e está acompanhado(a), então pode entrar.
+
+Adeus!
+
+Nosso código funciona, mas ainda podemos melhorá-lo. Repare que temos uma condição, depois outra condição, e só então um caso contrário. Imagine, então, se tivéssemos ainda mais uma condição: se a pessoa tiver 15 anos, estiver acompanhada e for libriana. Precisaríamos, então, criar outro if, depois outro else, tornando nosso código cada vez maior e com a leitura cada vez mais complicada.
+
+Quando temos várias condições no código, podemos utilizar, além do if e do else, uma outra estrutura chamada else if:
+
+if ($idade >= 18) {
+    echo "Você tem $idade anos. Pode entrar sozinho.";
+} else if ($idade >= 16 && $numeroDePessoas > 1) {
+    echo "Você tem $idade anos e está acompanhado(a), então pode entrar.";
+} else {
+    echo "Você só tem $idade anos. Você não pode entrar";
+}
+
+echo PHP_EOL;
+echo "Adeus!";
+
+Dessa forma, além do "caso contrário", já estamos verificando se a $idade passada é maior que 16 e se o número de pessoas é maior que 1, e nosso código continuará funcionando como esperado.
+
+Se refletirmos um pouco, perceberemos que tudo que fizemos nessa refatoração foi mudar a posição do if, abandonando as chaves, mas o nosso editor de texto não aponta nenhum erro. Conversaremos mais sobre isso no próximo vídeo.
