@@ -1,0 +1,71 @@
+Break e continue
+
+No último vídeo foi lançado um desafio: e se quisermos pular uma iteração, deixando de executar o código a depender de uma condição?
+
+Sabemos que o if nos permite trabalhar com condições. Portanto, dentro do nosso for, adicionaremos esse if:
+
+for ($contador = 1; $contador <= 15; $contador ++) {
+    if ($contador == 13) {
+
+    } else {
+        echo "#$contador" . PHP_EOL;
+    }
+}
+
+Dessa forma, se $contador for igual a 13, não executaremos nada. Do contrário, exibiremos os valores na tela como fazíamos antes.
+
+Se executarmos php repeticao2.php no terminal, teremos a lista com os números de 1 a 15, excluindo o 13, assim como planejado. Porém, repare que temos um if vazio no nosso código, o que não é muito interessante.
+
+Podemos consertar isso facilmente mudando a nossa verificação para "se o valor for diferente de 13". No PHP, o "diferente" é representado por !=:
+
+for ($contador = 1; $contador <= 15; $contador ++) {
+    if ($contador != 13) {
+        echo "#$contador" . PHP_EOL;
+    }
+}
+
+Nosso código funcionará corretamente, mas ainda podemos melhorá-lo. Em programação, quando existe um caso excepcional, é interessante colocarmos esse caso primeiro. Portanto, voltaremos ao primeiro modelo:
+
+for ($contador = 1; $contador <= 15; $contador ++) {
+    if ($contador == 13) {
+
+    } else {
+        echo "#$contador" . PHP_EOL;
+    }
+}
+
+Quando acontecer o caso excepcional de $contador == 13, queremos, na verdade, pular a interação. Do contrário, a execução ocorrerá normalmente. Para que o PHP não execute o loop, podemos usar a instrução continue:
+
+for ($contador = 1; $contador <= 15; $contador ++) {
+    if ($contador == 13) {
+        continue;
+    } else {
+        echo "#$contador" . PHP_EOL;
+    }
+}
+
+Isso funcionará corretamente, mas pode ser ainda mais sintético. Como o PHP pulará a iteração se $contador == 13, o else não é mais necessário:
+
+for ($contador = 1; $contador <= 15; $contador ++) {
+    if ($contador == 13) {
+        continue;
+    } 
+    echo "#$contador" . PHP_EOL;
+}
+
+Assim, aprendemos a pular iterações, evitando códigos duplicados, condições que não retornam nada ou mesmo condições negativas. Mas e se, dependendo de uma condição, quiséssemos parar o loop? Isso é possível por meio da instrução break.
+
+for ($contador = 1; $contador <= 15; $contador ++) {
+    if ($contador == 13) {
+        break;
+    } 
+    echo "#$contador" . PHP_EOL;
+}
+
+Executando esse código, os números serão exibidos somente até 12, quebrando a execução antes mesmo da condição original ter sido satisfeita.
+
+Por enquanto, as construções que fizemos com break e continue fazem sentido. Porém, elas normalmente não são utilizadas, já que existem saídas mais elegantes e com práticas melhores, ainda que não faça sentido estudarmos elas nesse momento.
+
+Já aprendemos muita coisa com PHP, como atribuir valores a variáveis, tomar decisões, repetir execuções, fazer loops e pular ou parar iterações. Agora, queremos aplicar esses conhecimentos em um programa de verdade, que execute algo útil para nós. É isso que faremos na próxima aula, que será repleta de desafios!
+
+Não deixe de fazer os exercícios, de tirar suas dúvidas no nosso fórum e de estudar a documentação do PHP. Até a próxima!
