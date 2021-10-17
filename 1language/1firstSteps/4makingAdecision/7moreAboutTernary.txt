@@ -1,0 +1,16 @@
+Para saber mais: Ternário
+
+Vimos que quando há apenas uma linha a ser executada no bloco de decisão, podemos omitir as chaves ({ e }). Embora seja possível, o instrutor deste treinamento não recomenda. Não faz mal nenhum adicionar as chaves, e pode nos poupar um baita trabalho tentando entender o que houve de errado depois.
+
+Além disso, quando há apenas uma linha a ser executada, temos uma outra opção para tomar decisões. Se precisamos, por exemplo, atribuir o valor a uma variável nos baseando em alguma condição, podemos utilizar o que é chamado de operador ternário. Sua sintaxe é a seguinte:
+
+$variavel = $condicao ? $valorSeVerdadeiro : $valorSeFalso;
+
+Com isso, se quiséssemos atribuir uma mensagem se a pessoa for menor de idade, e outra caso contrário, poderíamos fazer:
+
+<?php
+$idade = 15;
+$mensagem = $idade < 18 ? ‘Você é menor de idade’ : ‘Você é maior de idade’;
+echo $mensagem;
+
+Você pode pesquisar com mais detalhes sobre o operador ternário, ou ler nesta página da documentação do PHP (https://www.php.net/manual/pt_BR/language.operators.comparison.php) alguns exemplos mais complexos.
