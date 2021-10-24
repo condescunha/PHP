@@ -1,0 +1,8 @@
+Desafio Números ímpares
+
+Nesse capítulo final do nosso curso de primeiros passos com PHP, já podemos afirmar que conhecemos boa parte da estrutura básica dessa linguagem e do que ela oferece para criarmos nossos programas. Para provarmos isso, vamos passar por alguns desafios.
+
+Dentro do projeto "php-primeiros-passos", criaremos uma nova pasta chamada "desafios". O primeiro desafio será executar um programa que exiba, na tela do usuário, todos os números ímpares de 0 à 100. Uma dica: para saber se um número é ímpar ou não no PHP, podemos utilizar o operador de resto de divisão por 2 - se esse resto for igual a 0, o número é par; caso contrário, ele é ímpar.
+
+A minha solução para esse desafio será apresentada na próxima aula!
+
