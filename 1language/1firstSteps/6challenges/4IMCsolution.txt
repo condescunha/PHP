@@ -1,0 +1,46 @@
+Solução IMC 
+
+No último vídeo, propus a construção de um programa que, a partir de uma $altura e de um $peso, calculasse o IMC e exibisse se a pessoa está com o peso dentro, abaixo ou acima do recomendado. Vamos analisar a solução que criei:
+
+<?php
+
+$peso = 60;
+$altura = 1.74;
+$imc = $peso / $altura ** 2;
+
+echo "Seu IMC é de $imc. Você está com o IMC ";
+
+if ($imc < 18.5) {
+    echo "abaixo";
+} elseif ($imc < 25) {
+    echo "dentro";
+} else {
+    echo "acima";
+}
+
+echo " do recomendado";
+
+Nele, temos uma variável $imc que recebe o resultado da fórmula $peso / $altura ** 2. Uma coisa interessante de comentar: assim como na matemática, o PHP segue a precedência de operadores (primeiro a divisão e a multiplicação, depois soma e subtração). Seguindo esse raciocínio, a exponenciação vem antes da divisão. Por isso, primeiro o programa fará a $altura ao quadrado, e depois dividirá o $peso pelo resultado.
+
+Se quiséssemos executar $peso / $altura primeiro, teríamos que utilizar os parênteses:
+
+($peso / $altura) ** 2COPIAR CÓDIGO
+Voltando ao código, tendo calculado o IMC, exibo uma mensagem Seu IMC é de $imc. Você está com o IMC, concatenando o resultado automaticamente. Então, temos uma condicional if que verifica se $imc é menor do que 18.5. Nesse caso, o programa exibe que a pessoa está abaixo do peso recomendado.
+
+Se a pessoa tiver mais que 18.5 e menos do que 25, ela está dentro do IMC recomendado. Já se ela não satisfazer nenhuma dessas condições - ou seja, seu IMC é 25 ou mais -, o IMC dela está acima do recomendado.
+
+A fórmula do IMC e os parâmetros para essas decisões foram tiradas do seguinte link: https://www.hospitalsiriolibanes.org.br/hospital/especialidades/nucleo-obesidade-transtornos-alimentares/Paginas/calcule-seu-imc.aspx
+
+Apesar do código ter sido escrito em partes, toda a mensagem é exibida em uma linha só, dando ao usuário a impressão de que tudo aconteceu instantaneamente. Executando o código da forma que ele está, teremos o seguinte retorno:
+
+Seu IMC é de 19.817677368212. Você está com o IMC dentro do recomendado
+
+Se mudássemos a $altura para 1.90, mantendo o mesmo $peso, teríamos:
+
+Seu IMC é de 16.620498614958. Você está com o IMC abaixo do recomendado
+
+Já se tivéssemos $altura = 1.74 e peso = 120:
+
+Seu IMC é de 39.635354736425. Você está com o IMC acima do recomendado
+
+Com isso, temos algumas demonstrações do que já somos capazes de fazer com um curso introdutório sobre as bases dessa linguagem. Isso é apenas o início do que o PHP tem a oferecer.
