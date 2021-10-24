@@ -1,0 +1,30 @@
+Chegou a hora de você seguir todos os passos realizados por mim durante esta aula. Caso já tenha feito, excelente. Se ainda não fez, segue um breve passo a passo.
+
+1) No PHPStorm, dentro do seu projeto, crie uma nova pasta avancando.
+
+2) Nessa pasta crie um novo arquivo listas.php e declara um array de números inteiros e imprime a quinta posição:
+
+<?php
+
+$idadeList = [21, 23, 19, 25, 30, 41, 18];
+$umaIdade = $idadeList[4];
+
+echo $umaIdade;COPIAR CÓDIGO
+3) Execute o arquivo listas.php na linha de comando:
+
+php avancando\listas.phpCOPIAR CÓDIGO
+4) De volta ao PHPStorm, use o laço for com índice para imprimir cada elemento. Para tal crie um novo arquivo loop-lista.php dentro da pasta avancando
+
+Segue o código completo:
+
+<?php
+
+$idadeList = [21, 23, 19, 25, 30, 41, 18];
+
+for ($i = 0; $i < count($idadeList); $i++) {
+    echo $idadeList[$i] . PHP_EOL;
+}COPIAR CÓDIGO
+5) Execute o arquivo listas.php na linha de comando:
+
+php avancando\listas.phpCOPIAR CÓDIGO
+6) (Opcional) Experimente a declaração de uma lista de nomes (strings) de alunos, como por exemplo João, Maria, Pedro e Ana. Imprima os nomes através de uma estrutura de repetição. Na declaração do array experimente utilizar array().

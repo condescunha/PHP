@@ -1,0 +1,53 @@
+Terminamos o último vídeo questionando como podemos exibir todas as idades da nossa turma. Se temos um código que será repetido um determinado número de vez, devemos utilizar um loop. Mas como faremos um loop nessa lista?
+
+Para explorarmos esse tema, criaremos um novo arquivo loop-lista.php e copiaremos a lista que criamos para ele.
+
+<?php
+
+$idadeList = [21, 23, 19, 25, 30, 41, 18];COPIAR CÓDIGO
+Para executarmos um loop nessa lista, utilizaremos o for. Inicializaremos um contador $i em 0, pois sabemos que o nosso array começa do índice zero, e queremos que ele itere até o sexto item desse array - ou seja, $i < 7. Enquanto esse valor não for alcançado, o contador será incrementado com $i++.
+
+Exibiremos então o item atual da iteração, o que pode ser feito facilmente com $idadeList[$i] - ou seja, passando o valor atual do contador como posição do nosso array. Dessa forma, ao invés de acessarmos um item fixo, acessaremos o item equivalente à iteração atual. Adicionaremos também o PHP_EOL para quebrarmos a linha a cada execução.
+
+<?php
+
+
+$idadeList = [21, 23, 19, 25, 30, 41, 18];
+
+for ($i = 0; $i < 7; $i++) {
+    echo $idadeList[$i] . PHP_EOL;
+}COPIAR CÓDIGO
+Feito isso, quando $i for igual à 7, a execução do código terminará. Executando com php loop-lista.php, teremos como retorno a lista de idades criada, na ordem em que ela foi acessada:
+
+21
+
+23
+
+19
+
+25
+
+30
+
+41
+
+18
+
+Isso porque o índice é definido de forma crescente - ou seja, o primeiro item será sempre o número 0, o segundo 1, terceiro 2, e assim por diante, a não ser que a gente defina explicitamente outros índices.
+
+Repare que no nosso laço estamos iterando até o número total de itens dessa lista. Mas e se tivermos uma lista com 50 dados, teremos que contá-los para saber qual o número total de itens nela? E se estivermos importando essa lista de outro arquivo ou de um banco de dados? Com o PHP é bem simples descobrirmos o tamanho de uma lista.
+
+Utilizando count($idadeList), uma função do PHP, podemos contar quantos itens existem em uma lista, devolvendo esse número. Portanto, se fizermos echo count($idadeList), teremos como retorno o número 7.
+
+Portanto, no nosso laço, podemos substituir o $i < 7 por $i < count($idadeList). Dessa forma, mesmo que o número de itens na lista seja alterado, o código continuará sendo executado corretamente.
+
+<?php
+
+$idadeList = [21, 23, 19, 25, 30, 41, 18];
+
+for ($i = 0; $i < count($idadeList); $i++) {
+    echo $idadeList[$i] . PHP_EOL;
+}COPIAR CÓDIGO
+Mas e se quisermos guardar em uma variável não somente números, mas também o nome do aluno e o curso que ele está fazendo? Ou os detalhes de uma conta-corrente, como nome de titular e saldo da conta? Será que precisaríamos de uma lista de strings para os $titulares e outra variável para os $saldos?
+
+Conversaremos melhor sobre esse assunto na próxima aula!

@@ -1,0 +1,53 @@
+Terminamos o vídeo anterior comentando sobre a possibilidade de trabalharmos com vários dados em uma mesma variável. Por exemplo, se quisermos armazenar as idades de uma turma inteira em uma única variável.
+
+Para explorarmos esse assunto, abriremos no nosso projeto uma nova pasta "avancando", na qual armazenaremos os novos arquivos - dentre eles o listas.php, que criaremos agora. Aqui, poderíamos ter diversas variáveis diferentes representando idades:
+
+<?php
+
+
+$idade1 = 21;
+$idade2 = 23;
+$idade3 = 19;
+$idade4 = 21;
+$idade5 = 30;
+$idade6 = 25;COPIAR CÓDIGO
+Dessa forma é possível armazenar todos os valores que precisamos. Entretanto, como saberemos quantas variáveis contendo valores de idades nós temos? Além disso, se quisermos exibi-las, não será trivial passarmos por todas essas variáveis - quanto mais idades, mais linhas, mais espaço de memória, mais nomes diferentes de variáveis (o que pode acarretar em erros), etc.
+
+Seria mais interessante termos uma variável $idades (ou $idadeList) na qual pudéssemos passar uma lista de valores:
+
+<?php
+
+$idadeList = 21, 23, 19, 25, 30, 41, 18;COPIAR CÓDIGO
+Em programação, um conjunto de dados dessa forma, exposto como uma lista, é chamado de array (ou "vetor"). Um array nada mais é do que uma sequência de informações, normalmente (mas não sempre) do mesmo tipo - por exemplo, uma lista de inteiros. Existem duas formas de informarmos o PHP de que esses valores devem ser lidos como um array. A primeira delas é com array():
+
+<?php
+
+
+$idadeList =  array(21, 23, 19, 25, 30, 41, 18);COPIAR CÓDIGO
+Nas versões mais recentes do PHP, não precisamos mais escrever a palavra array, bastando utilizarmos colchetes para rodear o nosso vetor:
+
+<?php
+
+
+$idadeList = [21, 23, 19, 25, 30, 41, 18];COPIAR CÓDIGO
+Mas e se quisermos acessar os itens dessa lista? A principal característica de um vetor é que, além de seus valores, ele possui chaves/índices para acessá-los. Por padrão, se não definirmos esses índices, eles começam com o número 0. Por exemplo, se quisermos a $primeiraIdade, podemos passar o índice 0 entre colchetes:
+
+<?php
+
+
+$idadeList = [21, 23, 19, 25, 30, 41, 18];
+$primeiraIdade = $idadeList[0];COPIAR CÓDIGO
+Assim, estamos informando que queremos pegar o item da posição 0 desse array, que é o primeiro item. Se quiséssemos o terceiro item, pediríamos a segunda posição ($idadeList[2]), e assim por diante. Assim, poderemos exibir na tela uma variável que receba o valor de uma das posições desse array:
+
+<?php
+
+
+$idadeList = [21, 23, 19, 25, 30, 41, 18];
+$umaIdade = $idadeList[2];
+
+
+
+echo "$umaIdade";COPIAR CÓDIGO
+Executando listas.php, teremos como retorno "19", que é o item da posição 2 de $idadeList. Levando em consideração tudo o que já aprendemos, como é que poderemos exibir todas as idades dessa lista?
+
+Conversaremos sobre isso no próximo vídeo!
