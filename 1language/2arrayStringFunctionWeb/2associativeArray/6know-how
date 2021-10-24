@@ -1,0 +1,58 @@
+Chegou a hora de você seguir todos os passos realizados por mim durante esta aula. Caso já tenha feito, excelente. Se ainda não, segue o passo a passo:
+
+1) No PHPStorm, dentro da pasta avancando, crie um novo arquivo contas-correntes.php. Nele declare 3 contas usando um array associativo para cada conta:
+
+<?php
+
+$conta1 = [
+    'titular' => 'Vinicius',
+    'saldo' => 1000
+];
+$conta2 = [
+    'titular' => 'Maria',
+    'saldo' => 10000
+];
+$conta3 = [
+    'titular' => 'Alberto',
+    'saldo' => 300
+];COPIAR CÓDIGO
+2) Agora guarde os 3 arrays associativos dentro de um array simples:
+
+$contasCorrentes = [$conta1, $conta2, $conta3];COPIAR CÓDIGO
+3) Por fim, use um laço para imprimir o titular de cada conta:
+
+for ($i = 0; $i < count($contasCorrentes); $i++) {
+    echo $contasCorrentes[$i]['titular'] . PHP_EOL;
+}COPIAR CÓDIGO
+4) Execute o arquivo contas-correntes.php na linha de comando:
+
+php avancando\contas-correntes.phpCOPIAR CÓDIGO
+5) De volta ao PHPStorm, crie um novo arquivo foreach.php. Nesse arquivo crie três contas usando arrays associativos. Cada conta possui um CPF como índice e o valor do titular e saldo.
+
+Muito cuidado com a síntaxe! Segue o código:
+
+<?php
+
+$contasCorrentes = [
+    '123.456.789-10' => [
+        'titular' => 'Maria',
+        'saldo' => 10000
+    ],
+    '123.456.689-11' => [
+        'titular' => 'Alberto',
+        'saldo' => 300
+    ],
+    '123.256.789-12' => [
+        'titular' => 'Vinicius',
+        'saldo' => 100
+    ]
+];COPIAR CÓDIGO
+6) No mesmo arquivo foreach.php use o laço foreach para imprimir o índice (cpf) e o valor (conta) do array $contaCorrentes:
+
+foreach ($contasCorrentes as $cpf => $conta) {
+    echo $cpf . " " . $conta['titular'] . PHP_EOL;
+}COPIAR CÓDIGO
+7) Execute o arquivo foreach.php na linha de comando:
+
+php avancando\foreach.phpCOPIAR CÓDIGO
+8) (Opcional) Experimente a declaração de um array associativo que mapea a placa do carro (tipo string, por exemplo LMS-2312) para um carro. O carro também é um array associativo que possui uma marca (por exemplo 'marca' => 'VW') e o modelo (por exemplo 'modelo' => 'Golf').

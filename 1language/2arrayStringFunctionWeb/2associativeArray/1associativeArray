@@ -1,0 +1,75 @@
+Na última aula aprendemos a armazenar listas de dados em uma variável e a exibir os itens dessa lista. Mas será que é possível ter mais de um tipo de informação na mesma variável - por exemplo, o nome e a idade de um aluno ou o titular de uma conta-corrente e o saldo dela?
+
+Pensando nesse exemplo, criaremos um novo arquivo contas-correntes.php, no qual criaremos uma variável $contasCorrentes recebendo uma lista.
+
+<?php
+
+$contasCorrentes = [];COPIAR CÓDIGO
+Nessa lista, por enquanto, queremos ter nome o nome de um titular e um saldo. Já aprendemos a adicionar valores ou nomes em uma lista:
+
+$contasCorrentes = [1000, 2000];COPIAR CÓDIGO
+$contasCorrentes = ['Vinicius', 'João'];COPIAR CÓDIGO
+Porém, dessa vez queremos ter um array de contas:
+
+<?php
+
+$contasCorrentes = [$conta1, $conta2, $conta3];COPIAR CÓDIGO
+Como criamos, então, uma $conta contendo o nome do titular e o saldo? Cada linguagem possui uma solução para esse tipo de situação. No PHP, temos os arrays associativos, uma espécie de mapa na qual podemos associar um nome/índice a determinado valor. Esse índice pode ser numérico, como o PHP faz automaticamente, ou pode ser definido de outra forma - por exemplo, criando uma string titular ou saldo.
+
+<?php
+
+$conta1 = [
+    'titular'=> 'Vinicius', 
+    'saldo'=>1000
+];
+
+$contasCorrentes = [$conta1, $conta2, $conta3];COPIAR CÓDIGO
+Como estamos definindo os índices, se quisermos acessar e exibir um dos valores, teremos que passar seu respectivo índice entre colchetes:
+
+echo "$conta1['titular']"COPIAR CÓDIGO
+Recapitulando: conseguimos definir uma chave/índice de um array passando o nome desejado, um operador de seta (=>) e o valor dessa chave. Da mesma forma que nas listas comuns, os valores de um array associativo em PHP são separados por vírgula. Portanto, no PHP, temos a distinção entre arrays numéricos, nos quais não definimos os índices, e arrays associativos, nos quais os índices são definidos e possuem significados.
+
+Não é necessário que esses índices sejam strings. Por exemplo, poderíamos mapear o CPF de um titular ao seu nome:
+
+$conta1 = [
+    12345678910 => 'Vinicius',
+    'titular'=> 'Vinicius',
+    'saldo'=>1000
+];COPIAR CÓDIGO
+Vamos criar outras contas no nosso arquivo:
+
+<?php
+
+$conta1 = [
+    'titular'=> 'Vinicius',
+    'saldo'=>1000
+];
+
+$conta2 = [
+    'titular'=> 'Maria',
+    'saldo'=>10000
+];
+
+$conta3 = [
+    'titular'=> 'Alberto',
+    'saldo'=>300
+];
+
+$contasCorrentes = [$conta1, $conta2, $conta3];COPIAR CÓDIGO
+Agora, queremos fazer um loop por essas contas e exibir o titular de cada uma delas. Como é que podemos fazer isso? Uma alternativa seria criarmos um for para iterar pelas contas correntes, pegar o valor do índice $i e utilizar ['titular'] para exibirmos o valor dessa chave.
+
+$contasCorrentes = [$conta1, $conta2, $conta3];
+
+for ($i = 0; $i < count($contasCorrentes); $i++) {
+    echo $contasCorrentes[$i]['titular'] . PHP_EOL;
+
+}COPIAR CÓDIGO
+Executando no terminal, teremos como retorno:
+
+Vinicius
+
+Maria
+
+Alberto
+
+Porém, existe uma forma diferente de fazermos isso, e trabalharemos com ela no próximo vídeo.

@@ -1,0 +1,123 @@
+No último vídeo, criamos três contas-correntes e armazenamos os titulares e os saldos de cada uma delas. Assim, estamos trabalhando com dados um pouco mais complexos. Além disso, criamos uma lista de contas-correntes ($contasCorrentes) para armazená-las, e um loop que passa por todas elas e exibe os seus titulares.
+
+<?php
+
+$conta1 = [
+    'titular' => 'Vinicius',
+    'saldo' => 1000
+];
+
+$conta2 = [
+    'titular' => 'Maria',
+    'saldo' => 10000
+];
+
+$conta3 = [
+    'titular' => 'Alberto',
+    'saldo' => 300
+];
+
+$contasCorrentes = [$conta1, $conta2, $conta3];
+
+for ($i = 0; $i < count($contasCorrentes); $i++) {
+    echo $contasCorrentes[$i]['titular'] . PHP_EOL;
+
+}COPIAR CÓDIGO
+Terminamos o vídeo comentando que existe ainda outra forma de iterarmos por essas contas, e começaremos a trabalhar com ela em um novo arquivo foreach.php - "for each" de "para cada", em inglês, que é justamente o tipo de iteração que desejamos fazer.
+
+Nesse novo arquivo, copiaremos o código que faz a criação da nossa lista de contas:
+
+<?php
+
+$conta1 = [
+    'titular' => 'Vinicius',
+    'saldo' => 1000
+];
+
+$conta2 = [
+    'titular' => 'Maria',
+    'saldo' => 10000
+];
+
+$conta3 = [
+    'titular' => 'Alberto',
+    'saldo' => 300
+];
+
+$contasCorrentes = [$conta1, $conta2, $conta3];COPIAR CÓDIGO
+Agora, para cada (foreach) conta-corrente, queremos executar determinado código.
+
+foreach () {
+
+} COPIAR CÓDIGO
+Queremos iterar pela variável $contasCorrentes, portanto é ela que passaremos entre parênteses. Em seguida, temos que nomear cada uma das variáveis contidas nessa lista - no caso, vamos chamá-las de $conta. Essa variável, então, poderá ser acessada da maneira que preferirmos. Assim, para cada $conta em $contasCorrentes, executaremos echo $conta['titular'].
+
+$contasCorrentes = [
+    $conta1,
+    $conta2,
+    $conta3
+];
+
+foreach ($contasCorrentes as $conta) {
+    echo $conta['titular'] . PHP_EOL;
+}COPIAR CÓDIGO
+Esse código tem exatamente a mesma funcionalidade daquele que criamos no vídeo anterior, mas é um pouco mais legível. Afinal, não precisamos contar quantos itens existem na lista, não precisamos usar uma variável contadora e nem acessar a variável original no índice do contador.
+
+Agora, e se quiséssemos informar os índices das contas em $contasCorrentes, por exemplo com seus CPFs?
+
+$contasCorrentes = [
+    12345678910 => $conta1,
+    12345678911 =>$conta2,
+    12325678912 =>$conta3
+];
+
+foreach ($contasCorrentes as $conta) {
+    echo $conta['titular'] . PHP_EOL;
+}COPIAR CÓDIGO
+Dessa forma, estamos modificando os índices dessa lista. Dessa forma, não poderíamos percorrer a lista somente incrementando um contador com o loop tradicional, como fizemos no vídeo passado. Porém, como o foreach não precisa do índice para iterar por cada variável, ele continuará funcionando corretamente.
+
+E se quisermos acessar esses índices com o nosso foreach? Podemos simplesmente acessar a chave, da mesma forma que acessamos o valor, indicando um nome para essa variável. Para informarmos que essa chave é o índice, utilizamos a mesma sintaxe de quando definimos o array:
+
+$contasCorrentes = [
+    12345678910 => $conta1,
+    12345678911 =>$conta2,
+    12325678912 =>$conta3
+];
+
+foreach ($contasCorrentes as $cpf => $conta) {
+    echo $conta['titular'] . PHP_EOL;
+}COPIAR CÓDIGO
+Dessa forma, poderemos exibir os índices da mesma forma que fizemos com o titular:
+
+$contasCorrentes = [
+    12345678910 => $conta1,
+    12345678911 =>$conta2,
+    12325678912 =>$conta3
+];
+
+foreach ($contasCorrentes as $cpf => $conta) {
+    echo $cpf . PHP_EOL;
+}COPIAR CÓDIGO
+Perceba, então, que temos três variáveis ($conta1, $conta2 e $conta3) que não estão sendo utilizadas fora do array $contasCorrentes. Sendo assim, ao invés de inicializarmos essas variáveis fora do array, podemos simplesmente passar os seus valores dentro dele:
+
+<?php
+
+$contasCorrentes = [
+    12345678910 => [
+        'titular' => 'Vinicius',
+        'saldo' => 1000
+    ],
+    12345678911 => [
+        'titular' => 'Maria',
+        'saldo' => 10000
+    ],
+    12325678912 => [
+    'titular' => 'Alberto',
+    'saldo' => 300
+    ]
+];
+
+foreach ($contasCorrentes as $cpf => $conta) {
+    echo $conta['titular'] . PHP_EOL;
+}COPIAR CÓDIGO
+Assim, temos um código menor e mais legível. Temos três contas no array $contasCorrentes, e estamos atribuindo a cada uma delas o índice $cpf e o valor $conta, tratando esses dados dentro do loop. Ou seja, já definimos as nossas contas, mas e se quisermos adicionar novos correntistas nesse array associativo? Conversaremos sobre isso no próximo vídeo.
