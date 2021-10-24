@@ -1,0 +1,83 @@
+Chegou a hora de você seguir todos os passos realizados por mim durante esta aula. Caso já tenha feito, excelente.
+
+De qualquer forma, seguem os passos para implementar tudo que foi feito nessa aula:
+
+1) No PHPStorm, dentro da pasta avancando, crie um novo arquivo banco.php e declara um array associativo com 3 contas:
+
+<?php
+
+$contasCorrentes = [
+    '123.456.789-10' => [
+        'titular' => 'Maria',
+        'saldo' => 10000
+    ],
+    '123.456.689-11' => [
+        'titular' => 'Alberto',
+        'saldo' => 300
+    ],
+    '123.256.789-12' => [
+        'titular' => 'Vinicius',
+        'saldo' => 100
+    ]
+];COPIAR CÓDIGO
+2) Agora crie uma função exibeMensagem(..) que imprime uma mensagem junto com PHP_EOL:
+
+function exibeMensagem(string $mensagem)
+{
+    echo $mensagem . PHP_EOL;
+}COPIAR CÓDIGO
+3) Logo abaixo da função use um laço para imprimir o cpf, titular e saldo de cada conta:
+
+foreach ($contasCorrentes as $cpf => $conta) {
+    exibeMensagem($cpf . " " . $conta['titular'] . ' ' . $conta['saldo']);
+}COPIAR CÓDIGO
+4) Teste a função e execute o arquivo banco.php na linha de comando:
+
+php avancando\banco.phpCOPIAR CÓDIGO
+5) De volta ao PHPStorm, crie mais uma função para depositar dinheiro na conta. Adicione a função logo abaixo da função exibeMensagem:
+
+function depositar(array $conta, float $valorADepositar): array
+{
+    if ($valorADepositar > 0) {
+        $conta['saldo'] += $valorADepositar;
+    } else {
+        exibeMensagem("Depositos precisam ser positivos");
+    }
+    return $conta;
+} COPIAR CÓDIGO
+Repara que chamamos a função exibeMensagem e retornamos a conta.
+
+6) Logo abaixo da função depositar adicione a função sacar:
+
+function sacar(array $conta, float $valorASacar): array
+{
+    if ($valorASacar > $conta['saldo']) {
+        exibeMensagem("Você não tem saldo suficiente");
+    } else {
+        $conta['saldo'] -= $valorASacar;
+    }
+
+    return $conta;
+}COPIAR CÓDIGO
+6) Agora tente usar as função sacar e depositar. Logo abaixo da declaração da função sacar adicione no seu código:
+
+$contasCorrentes['123.456.789-10'] = sacar(
+    $contasCorrentes['123.456.789-10'],
+    500
+);
+
+$contasCorrentes['123.456.689-11'] = sacar(
+    $contasCorrentes['123.456.689-11'],
+    200
+);
+
+$contasCorrentes['123.256.789-12'] = depositar(
+    $contasCorrentes['123.256.789-12'],
+    900
+);COPIAR CÓDIGO
+Estamos sacando R$ 500,00 da conta com o CPF 123.456.789-10, R$ 200,00 da conta 123.456.689-11 e depositando R$ 900,00 na conta 123.256.789-12.
+
+7) Salve tudo no PHPStorm e execute o arquivo banco.php na linha de comando:
+
+php avancando\banco.phpCOPIAR CÓDIGO
+Tente depositar e sacar outros valores.
